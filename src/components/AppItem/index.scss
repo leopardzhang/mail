@@ -1,0 +1,68 @@
+@import 'common/mixin.scss';
+@import 'common/variable.scss';
+
+.item {
+	background: white;
+	padding: 22px 25px;
+
+	.item_name {
+		color: #383838;
+		font-size: 32px;
+		flex: 199px 0;
+	}
+
+	.chose_area {
+		flex: 1;
+
+		.input_area {
+			input {
+				margin: 0;
+				border: 0;
+				padding: 0;
+				outline: none;
+				box-shadow: none;
+				font-size: 30px;
+				color: #a3a3a3;
+				flex: 1;
+			}
+
+			.right_arr {
+				width: 16px;
+				height: 28px;
+
+				@include bg-image("./images/arr_right");
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+		}
+
+		.badeg_box {
+			padding-top: 20px;
+
+			ul {
+				flex-wrap: wrap;
+
+				li {
+					width: 33.33%;
+					margin-bottom: 10px;
+
+					.badeg {
+						min-width: 120px;
+						height: 34px;
+						line-height: 34px;
+						font-size: 26px;
+						text-align: center;
+						color: white;
+						background-color: #fed87f;
+						border-radius: 3px;
+						display: inline-block;
+
+						&.active {
+							background-color: $action-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}

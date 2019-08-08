@@ -1,0 +1,70 @@
+@import 'common/mixin.scss';
+
+.index_list {
+	color: #5e5e5e;
+
+	.icon_box {
+		width: 100%;
+		padding: 12px 0;
+
+		.i_index {
+			width: 56px;
+			height: 56px;
+			display: inline-block;
+		}
+
+		.index_font {
+			font-size: 32px;
+			color: #383838;
+			padding-left: 23px;
+		}
+	}
+
+	.arr_right {
+		width: 16px;
+		height: 28px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		@include bg-image("./images/arr_right");
+	}
+}
+
+.search {
+	padding: 14px 40px;
+	background-color: white;
+
+	.input_box {
+		height: 50px;
+		padding: 0 15px;
+		margin: 0 22px;
+		flex: 1;
+		background-color: #f4f4f4;
+		border-radius: 23px;
+
+		input {
+			background-color: transparent;
+			border: none;
+			outline: none;
+			flex: 1;
+			color: #cdcdcd;
+			font-size: 28px;
+		}
+
+		.i_search {
+			width: 32px;
+			height: 32px;
+			margin-right: 20px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			@include bg-image("./images/search");
+		}
+	}
+
+	.avatar {
+		width: 40px;
+		height: 42px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		@include bg-image("./images/avatar");
+	}
+}

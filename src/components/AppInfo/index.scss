@@ -1,0 +1,22 @@
+@import 'common/mixin.scss';
+@import 'common/variable.scss';
+
+.item {
+	background: white;
+	padding: 22px 25px;
+
+	.item_name {
+		color: #383838;
+		font-size: 32px;
+		flex: 199px 0;
+	}
+
+	.chose_area {
+		flex: 1;
+
+		.info_value {
+			color:  #a3a3a3;
+			font-size: 30px;
+		}
+	}
+}
