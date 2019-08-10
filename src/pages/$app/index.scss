@@ -1,0 +1,29 @@
+@import "common/variable.scss";
+
+body {
+	background-color: #f4f4f4;
+}
+.content {
+	padding: 26px;
+}
+
+.router_box {
+	background-color: white;
+}
+.router_list {
+	padding-top: 24px;
+
+	a {
+		font-size: 34px;
+		color: #383838;
+		padding: 0 26px;
+		display: inline-block;
+		line-height: 2;
+
+		&.router-link-active {
+			line-height: 1.57;
+			font-size: 38px;
+			border-bottom: 5px solid $action-color;
+		}
+	}
+}

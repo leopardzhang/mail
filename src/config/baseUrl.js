@@ -4,4 +4,4 @@ const dev = 'http://localhost:3000';
 
 baseURL = process.env.NODE_ENV == 'production' ? prod : dev;
 
-export default baseURL;
+export default prod;

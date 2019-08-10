@@ -9,21 +9,18 @@ const mutations = {
 }
 
 const actions = {
-	async getData({
-		commit,
-        dispatch,
-        state
-	}, data) {
-		const res = await dispatch('$apiCall', {
-			config: $apiConf.MANAGER_GET_PROJECT,
-			params: {
-				a: 12,
-				b: 5
-			}
-		});
+	// async login({
+	// 	commit,
+    //     dispatch,
+    //     state
+	// }, params) {
+	// 	const res = await dispatch('$apiCall', {
+	// 		config: $apiConf.MANAGER_GET_PROJECT,
+	// 		params
+	// 	});
 
-		console.log(res);
-	}
+	// 	console.log(res);
+	// }
 }
 
 const getters = {

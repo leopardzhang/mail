@@ -15,19 +15,14 @@ export default {
 	},
 
 	mounted() {
-		this.getData({
-			a: 12,
-			b: 5
-		})
+
 	},
 
 	methods: {
-		...mapActions(['getData']),
-
 		addPerson() {
 			this.$router.push({
-				name: 'addPerson'
+				name: 'personDetail'
 			});
 		}
-	},
+	}
 };
