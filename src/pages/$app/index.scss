@@ -20,7 +20,7 @@ body {
 		display: inline-block;
 		line-height: 2;
 
-		&.router-link-active {
+		&.now {
 			line-height: 1.57;
 			font-size: 38px;
 			border-bottom: 5px solid $action-color;

@@ -4,10 +4,7 @@ export default {
 
         proxy: {
             url: 'cxUsersCusController.do?addUser',
-            method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			}
+            method: 'GET'
         }
 	}
 }

@@ -9,22 +9,18 @@
                         </div>
                         <div class="form-group">
                             <label>Username or Email</label>
-                            <input v-model="registerForm.username" type="text" autofocus="" class="form-control">
+                            <input v-model="loginForm.username" type="text" autofocus class="form-control">
                         </div>
 						<div class="form-group">
                             <label>Password</label>
-                            <input v-model="registerForm.password" type="password" autofocus="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Tel</label>
-                            <input v-model="registerForm.tel" type="tel" class="form-control">
+                            <input v-model="loginForm.password" type="password" class="form-control">
                         </div>
                         <div class="form-group text-right">
-                            <router-link to="login">已有账号？去登录</router-link>
+                            <router-link to="register">还没有账号？去注册</router-link>
                         </div>
                         <div class="form-group text-center">
-                            <button @click="handleSubmit" type="button" class="btn btn-primary account-btn">注册</button>
-						</div>
+                            <button @click="handleSubmit" type="button" class="btn btn-primary account-btn">登录</button>
+                        </div>
                     </form>
                 </div>
 			</div>

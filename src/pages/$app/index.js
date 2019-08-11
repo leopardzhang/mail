@@ -13,11 +13,23 @@ export default {
 	},
 	data() {
 		return {
-			transformName: 'slide-right',
-			pageName: '经济情况'
+			routerList: [{
+				name: '提醒',
+				to: '/tixing'
+			}, {
+				name: '联系人',
+				to: '/index'
+			}, {
+				name: '收藏',
+				to: '/act'
+			}],
+			routerIndex: 1
 		}
 	},
 
 	methods: {
+		changeRouterIndex(index) {
+			this.routerIndex = index
+		}
 	}
 }

@@ -2,18 +2,18 @@
 	<main>
 		<div class="router_box">
 			<ul class="flex between router_list">
-				<li>
-					<router-link to="/tixing">提醒</router-link>
-				</li>
-				<li>
-					<router-link to="/index">联系人</router-link>
-				</li>
-				<li>
-					<router-link to="/act">收藏</router-link>
+				<li v-for="(item, index) in routerList" :key="index">
+					<router-link
+						@click.native="changeRouterIndex(index)"
+						:class="{now: routerIndex == index}"
+						:to="item.to"
+					>
+						{{ item.name }}
+					</router-link>
 				</li>
 			</ul>
 		</div>
-		<transition :name="transformName">
+		<transition>
 			<keep-alive>
 				<router-view class="Router" />
 			</keep-alive>

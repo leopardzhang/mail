@@ -1,5 +1,5 @@
 import {
-	mapState,
+	mapGetters,
 	mapActions
 } from 'vuex'
 
@@ -11,18 +11,24 @@ export default {
 	},
 
 	computed: {
-		...mapState(['test'])
+		...mapGetters(['friendsList'])
 	},
 
 	mounted() {
-
+		
 	},
 
 	methods: {
-		addPerson() {
+		addPerson () {
 			this.$router.push({
 				name: 'personDetail'
 			});
+		},
+
+		handleFriendItemClick () {
+			this.$router.push({
+				name: 'personDetail'
+			})
 		}
 	}
 };

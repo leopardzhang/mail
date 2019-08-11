@@ -32,9 +32,13 @@
 				</mt-cell>
 			</mt-index-section>
 			<mt-index-section index="#">
-				<mt-cell title="未命名"></mt-cell>
-				<mt-cell title="未命名"></mt-cell>
-				<mt-cell title="未命名"></mt-cell>
+				<mt-cell
+					@click.native="handleFriendItemClick"
+					v-for="(item, index) in friendsList"
+					:key="index"
+					:title="item.name"
+				>
+				</mt-cell>
 			</mt-index-section>
 			<mt-index-section index="A">
 				<mt-cell title="Aaron"></mt-cell>

@@ -28,8 +28,11 @@ const actions = {
 		proxy[dataType[proxy.method]] = params;
 
 		const response = await axios(Object.assign({}, proxy));
+		if(response.status !== 200) {
+			throw Error('服务器异常');
+		}
 
-		return response;
+		return response.data;
 	}
 }
 
