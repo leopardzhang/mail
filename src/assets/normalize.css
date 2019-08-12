@@ -233,6 +233,10 @@ html {
     justify-content: center;
 }
 
+.column {
+	flex-direction: column;	
+}
+
 .fz14 {
     font-size: 14px;
 }

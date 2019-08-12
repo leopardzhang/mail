@@ -13,11 +13,13 @@
 				</li>
 			</ul>
 		</div>
-		<transition>
-			<keep-alive>
-				<router-view class="Router" />
-			</keep-alive>
-		</transition>
+		<div class="router_container">
+			<transition :name="transitionName">
+				<keep-alive>
+					<router-view class="Router" />
+				</keep-alive>
+			</transition>
+		</div>
 	</main>
 </template>
 

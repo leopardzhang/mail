@@ -23,7 +23,8 @@ export default {
 				name: '收藏',
 				to: '/act'
 			}],
-			routerIndex: 1
+			routerIndex: 1,
+			transitionName: "slide-right" //初始过渡动画方向
 		}
 	},
 

@@ -9,6 +9,12 @@ body {
 
 .router_box {
 	background-color: white;
+	height: 90px;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 100;
 }
 .router_list {
 	padding-top: 24px;
@@ -25,5 +31,31 @@ body {
 			font-size: 38px;
 			border-bottom: 5px solid $action-color;
 		}
+	}
+}
+
+.router_container {
+	position: relative;
+	margin-top: 90px;
+	height: calc(100vh - 90px);
+
+	.Router {
+		position: absolute;
+		transition: all 0.377s ease;
+		will-change: transform;
+		top: 0;
+		width: 100%;
+	}
+
+	.slide-left-enter,
+	.slide-right-leave-active {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0);
+	}
+  
+	.slide-left-leave-active,
+	.slide-right-enter {
+		opacity: 0;
+		transform: translate3d(100%, 0, 0);
 	}
 }

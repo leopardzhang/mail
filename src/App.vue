@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<router-view class="Router" />
+		<router-view />
 		<!-- <AppHeader :name="pageName" @handleSave=""></AppHeader>
 		<AppChoser></AppChoser>
 		<AppItem></AppItem>
@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="scss">
+.content {
+	padding: 0 26px;
+}
 </style>
