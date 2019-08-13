@@ -19,15 +19,20 @@ export default {
 	},
 
 	methods: {
+		...mapActions(['setCurrentFriend']),
+
 		addPerson () {
 			this.$router.push({
 				name: 'personDetail'
 			});
 		},
 
-		handleFriendItemClick () {
-			this.$router.push({
-				name: 'personDetail'
+		handleFriendItemClick (id) {
+
+			this.setCurrentFriend(id).then(() => {
+				this.$router.push({
+					name: 'personDetail'
+				})
 			})
 		}
 	}

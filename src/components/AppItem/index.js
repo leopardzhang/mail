@@ -1,3 +1,6 @@
 export default {
-	name: 'AppItem'
+	name: 'AppItem',
+	props: {
+		list: Object
+	}
 }

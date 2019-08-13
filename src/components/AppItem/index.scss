@@ -4,6 +4,7 @@
 .item {
 	background: white;
 	padding: 22px 25px;
+	margin-top: 20px;
 
 	.item_name {
 		color: #383838;
@@ -15,15 +16,16 @@
 		flex: 1;
 
 		.input_area {
-			input {
-				margin: 0;
-				border: 0;
-				padding: 0;
-				outline: none;
-				box-shadow: none;
-				font-size: 30px;
-				color: #a3a3a3;
+			.item_box {
 				flex: 1;
+
+				.item {
+					margin-right: 1em;
+					border: 0;
+					padding: 0;
+					font-size: 30px;
+					color: #a3a3a3;
+				}
 			}
 
 			.right_arr {

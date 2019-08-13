@@ -10,10 +10,10 @@ export default {
 					to: ''
 				}, {
 					name: '健康情况',
-					to: ''
+					to: 'healthy'
 				}, {
 					name: '个人喜好',
-					to: ''
+					to: 'hobby'
 				}, {
 					name: '关系网',
 					to: ''
@@ -25,6 +25,12 @@ export default {
 					to: ''
 				}
 			]
+		}
+	},
+
+	methods: {
+		jumpNext(to) {
+			this.$router.push({name: to})
 		}
 	},
 }

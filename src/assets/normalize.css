@@ -175,7 +175,8 @@ body {
 }
 
 html {
-    overflow-y: scroll;
+	overflow-y: scroll;
+	background-color: #f4f4f4;
 }
 
 /*清除浮动*/

@@ -17,7 +17,10 @@
 		</div>
 		<div class="content">
 			<ul class="info_list">
-				<li v-for="(item, index) in info_ctrl" :key="index">
+				<li
+					@click="jumpNext(item.to)"
+					v-for="(item, index) in info_ctrl"
+					:key="index">
 					<div class="flex aic">
 						<div class="icon"></div>
 						<span>{{ item.name }}</span>

@@ -3,33 +3,29 @@
 		<div>
 			<div class="flex">
 				<div class="item_name">
-					<p>喜好口味</p>
+					<p>{{ list.name }}</p>
 				</div>
 				<div class="chose_area">
 					<div class="input_area flex aic">
-						<input type="text" value="麻辣">
+						<div class="item_box">
+							<span
+								v-for="(item, index) in list.inputList"
+								:key="index"
+								class="item"
+								>
+								{{ item }}
+							</span>
+						</div>
 						<div class="right_arr"></div>
 					</div>
 					<div class="badeg_box">
 						<ul class="flex">
-							<li>
+							<li
+								v-for="(item, index) in list.baseList"
+								:key="index"
+							>
 								<div class="badeg active">
-									<span>麻辣</span>
-								</div>
-							</li>
-							<li>
-								<div class="badeg">
-									<span>麻辣</span>
-								</div>
-							</li>
-							<li>
-								<div class="badeg">
-									<span>麻辣</span>
-								</div>
-							</li>
-							<li>
-								<div class="badeg">
-									<span>麻辣</span>
+									<span>{{ item }}</span>
 								</div>
 							</li>
 						</ul>

@@ -33,8 +33,9 @@
 			</mt-index-section>
 			<mt-index-section index="#">
 				<mt-cell
-					@click.native="handleFriendItemClick"
+					@click.native="handleFriendItemClick(item.id)"
 					v-for="(item, index) in friendsList"
+					:id="item.id"
 					:key="index"
 					:title="item.name"
 				>

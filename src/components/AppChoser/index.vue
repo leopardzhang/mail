@@ -3,27 +3,18 @@
 		<div>
 			<div class="flex">
 				<div class="item_name">
-					<p>喜好口味</p>
+					<p>{{ name }}</p>
 				</div>
 				<div class="chose_area">
 					<div class="radio_box">
 						<ul class="radio_list flex">
-							<li>
-								<div class="radio active flex aic">
+							<li
+								@click="handleChose(index)"
+								v-for="(item, index) in options"
+								:key="index">
+								<div class="radio flex aic" :class="{active: current == index}">
 									<div class="circle"></div>
-									<div class="name">选项一</div>
-								</div>
-							</li>
-							<li>
-								<div class="radio flex aic">
-									<div class="circle"></div>
-									<div class="name">选项一</div>
-								</div>
-							</li>
-							<li>
-								<div class="radio flex aic">
-									<div class="circle"></div>
-									<div class="name">选项一</div>
+									<div class="name">{{ item.name }}</div>
 								</div>
 							</li>
 						</ul>

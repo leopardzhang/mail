@@ -7,6 +7,10 @@ export default {
 	methods: {
 		handleSave() {
 			this.$emit('handleSave');
+		},
+
+		goBack() {
+			this.$router.back(-1)
 		}
 	},
 }
