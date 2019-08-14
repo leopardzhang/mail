@@ -3,13 +3,13 @@
 
 .item {
 	background: white;
-	padding: 22px 25px;
-	margin-top: 20px;
+	padding: 10px 12px;
+	border-top: 10px solid #f4f4f4;
 
 	.item_name {
 		color: #383838;
-		font-size: 32px;
-		flex: 199px 0;
+		font-size: 18px;
+		flex: 6.4em 0;
 	}
 
 	.chose_area {
@@ -23,14 +23,14 @@
 					margin-right: 1em;
 					border: 0;
 					padding: 0;
-					font-size: 30px;
+					font-size: 16px;
 					color: #a3a3a3;
 				}
 			}
 
 			.right_arr {
-				width: 16px;
-				height: 28px;
+				width: 12px;
+				height: 24px;
 
 				@include bg-image("./images/arr_right");
 				background-size: contain;
@@ -39,7 +39,7 @@
 		}
 
 		.badeg_box {
-			padding-top: 20px;
+			padding-top: 10px;
 
 			ul {
 				flex-wrap: wrap;
@@ -49,10 +49,10 @@
 					margin-bottom: 10px;
 
 					.badeg {
-						min-width: 120px;
-						height: 34px;
-						line-height: 34px;
-						font-size: 26px;
+						min-width: 4.4em;
+						height: 24px;
+						line-height: 24px;
+						font-size: 16px;
 						text-align: center;
 						color: white;
 						background-color: #fed87f;

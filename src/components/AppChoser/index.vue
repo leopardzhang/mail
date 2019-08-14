@@ -1,7 +1,7 @@
 <template>
 	<div class="item">
 		<div>
-			<div class="flex">
+			<div class="flex aic">
 				<div class="item_name">
 					<p>{{ name }}</p>
 				</div>

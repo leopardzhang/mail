@@ -98,7 +98,32 @@ export default {
 				smoke: '已戒烟',
 				wine: '不饮酒',
 				tea: '经常'
-			}
+			},
+
+			popupVisible: false,
+
+			popPosition: 'right',
+
+			options: [
+				{
+					label: '被禁用',
+					value: '值F'
+				},
+				{
+					label: '选中禁用',
+					value: '选中禁用的值'
+				},
+				{
+					label: '选项A',
+					value: '值A'
+				},
+				{
+					label: '选项B',
+					value: '值B'
+				}
+			],
+
+			value: []
 		}
 	},
 
@@ -121,6 +146,23 @@ export default {
 
 		save () {
 
+		},
+
+		handleChose(data) {
+			const {
+				index,
+				itemIndex
+			} = data;
+
+			this.orgOtherHobby[itemIndex].current = index;
+		},
+
+		hiddenShare() {
+			this.popupVisible = false;
+		},
+
+		showPopup(index) {
+			this.popupVisible = true;
 		}
-	},
+	}
 }

@@ -3,13 +3,10 @@
 body {
 	background-color: #f4f4f4;
 }
-.content {
-	padding: 26px;
-}
 
 .router_box {
 	background-color: white;
-	height: 90px;
+	height: 64px;
 	position: fixed;
 	width: 100%;
 	left: 0;
@@ -20,7 +17,7 @@ body {
 	padding-top: 24px;
 
 	a {
-		font-size: 34px;
+		font-size: 20px;
 		color: #383838;
 		padding: 0 26px;
 		display: inline-block;
@@ -28,7 +25,7 @@ body {
 
 		&.now {
 			line-height: 1.57;
-			font-size: 38px;
+			font-size: 22px;
 			border-bottom: 5px solid $action-color;
 		}
 	}
@@ -36,8 +33,9 @@ body {
 
 .router_container {
 	position: relative;
-	margin-top: 90px;
-	height: calc(100vh - 90px);
+	margin-top: 64px;
+	height: calc(100vh - 64px);
+	overflow-y: auto;
 
 	.Router {
 		position: absolute;

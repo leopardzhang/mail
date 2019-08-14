@@ -5,21 +5,8 @@ function resolve(dir) {
 	return path.join(__dirname, dir);
 }
 
-const postcss = px2rem({
-	remUnit: 32
-})
-
 module.exports = {
 	publicPath: './',
-	css: {
-		loaderOptions: {
-			postcss: {
-				plugins: [
-					postcss
-				]
-			}
-		}
-	},
 	chainWebpack: (config) => {
 			config.resolve.alias
 				.set('@', resolve('src'))

@@ -1,6 +1,13 @@
 export default {
 	name: 'AppItem',
 	props: {
-		list: Object
-	}
+		list: Object,
+		index: Number
+	},
+
+	methods: {
+		showPopup() {
+			this.$emit('showPopup', this.index);
+		}
+	},
 }

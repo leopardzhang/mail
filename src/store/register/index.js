@@ -1,5 +1,7 @@
 import $apiConf from '@/config'
-import ERR_OK from '@/common/code'
+import {
+	ERR_OK
+} from '@/common/code'
 
 const state = {
 

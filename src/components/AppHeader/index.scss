@@ -1,13 +1,12 @@
 @import 'common/mixin.scss';
 
 header {
-	height: 88px;
 	background-color: white;
-	padding: 28px 0;
+	padding: 14px 0;
 
 	.arr_left {
-		width: 68px;
-		height: 32px;
+		width: 34px;
+		height: 16px;
 		background-size: contain;
 		background-repeat: no-repeat;
 		@include bg-image("./images/arr_left");
@@ -15,12 +14,12 @@ header {
 
 	.page_name {
 		color: #383838;
-		font-size: 36px;
+		font-size: 20px;
 	}
 
 	.save {
 		color: #4f4f4f;
-		font-size: 32px;
+		font-size: 16px;
 		margin-top: 2px;
 	}
 }

@@ -3,12 +3,13 @@
 
 .item {
 	background: white;
-	padding: 22px 25px;
+	padding: 10px 12px;
+	border-top: 10px solid #f4f4f4;
 
 	.item_name {
 		color: #383838;
-		font-size: 32px;
-		flex: 199px 0;
+		font-size: 18px;
+		flex: 6.4em 0;
 	}
 
 	.chose_area {
@@ -16,7 +17,7 @@
 
 		.info_value {
 			color:  #a3a3a3;
-			font-size: 30px;
+			font-size: 18px;
 		}
 	}
 }

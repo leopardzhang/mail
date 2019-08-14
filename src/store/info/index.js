@@ -1,5 +1,7 @@
 import $apiConf from '@/config'
-import ERR_OK from '@/common/code'
+import {
+	ERR_OK
+} from '@/common/code'
 
 const state = {
 
@@ -16,7 +18,7 @@ const actions = {
         state
 	}, params) {
 		const res = await dispatch('$apiCall', {
-			config: $apiConf.HEALTHY,
+			config: $apiConf.UPDATE_HEALTHY,
 			params: {
 				results: params
 			}})

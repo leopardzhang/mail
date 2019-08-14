@@ -1,3 +1,7 @@
 export default {
-	name: 'AppInfo'
+	name: 'AppInfo',
+	props: {
+		name: String,
+		value: Number
+	}
 }

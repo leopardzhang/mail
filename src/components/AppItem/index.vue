@@ -5,7 +5,7 @@
 				<div class="item_name">
 					<p>{{ list.name }}</p>
 				</div>
-				<div class="chose_area">
+				<div class="chose_area" @click="showPopup">
 					<div class="input_area flex aic">
 						<div class="item_box">
 							<span

@@ -8,15 +8,15 @@
 		padding: 12px 0;
 
 		.i_index {
-			width: 56px;
-			height: 56px;
+			width: 28px;
+			height: 28px;
 			display: inline-block;
 		}
 
 		.index_font {
-			font-size: 32px;
+			font-size: 18px;
 			color: #383838;
-			padding-left: 23px;
+			padding-left: 0.5em;
 		}
 	}
 
@@ -30,16 +30,16 @@
 }
 
 .search {
-	padding: 14px 40px;
+	padding: 8px 10px;
 	background-color: white;
 
 	.input_box {
-		height: 50px;
-		padding: 0 15px;
-		margin: 0 22px;
+		height: 30px;
+		padding: 0 8px;
+		margin: 0 10px;
 		flex: 1;
 		background-color: #f4f4f4;
-		border-radius: 23px;
+		border-radius: 15px;
 
 		input {
 			background-color: transparent;
@@ -47,13 +47,13 @@
 			outline: none;
 			flex: 1;
 			color: #cdcdcd;
-			font-size: 28px;
+			font-size: 16px;
 		}
 
 		.i_search {
-			width: 32px;
-			height: 32px;
-			margin-right: 20px;
+			width: 18px;
+			height: 18px;
+			margin-right: 12px;
 			background-size: contain;
 			background-repeat: no-repeat;
 			@include bg-image("./images/search");
@@ -61,8 +61,8 @@
 	}
 
 	.avatar {
-		width: 40px;
-		height: 42px;
+		width: 20px;
+		height: 21px;
 		background-size: contain;
 		background-repeat: no-repeat;
 		@include bg-image("./images/avatar");

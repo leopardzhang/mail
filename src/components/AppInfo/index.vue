@@ -3,11 +3,11 @@
 		<div>
 			<div class="flex">
 				<div class="item_name">
-					<p>贷款情况</p>
+					<p>{{ name }}</p>
 				</div>
 				<div class="chose_area">
 					<div class="radio_box">
-						<p class="info_value">10000</p>
+						<p class="info_value">{{ value }}</p>
 					</div>
 				</div>
 			</div>

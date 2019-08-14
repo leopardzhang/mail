@@ -5,10 +5,6 @@
 				<router-view class="base-router" />
 			</keep-alive>
 		</transition>
-		<!-- <AppHeader :name="pageName" @handleSave=""></AppHeader>
-		<AppChoser></AppChoser>
-		<AppItem></AppItem>
-		<AppInfo></AppInfo> -->
 	</div>
 </template>
 
@@ -24,17 +20,20 @@ export default {
 </script>
 
 <style lang="scss">
+
 .content {
-	padding: 0 26px;
+	padding: 0 14px;
+	background: white;
 }
 
 .base-router {
-	transition: all 0.377s ease-in-out;
+	transition: all 0.29s ease-in-out;
 	will-change: transform;
 	position: absolute;
 	left: 0;
 	top: 0;
 	width: 100%;
+	min-height: 100vh;
 }
 
 .slide-up-leave-active {
