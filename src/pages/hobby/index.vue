@@ -3,7 +3,7 @@
 		<AppHeader :name="name" @handleSave="save"></AppHeader>
 		<AppItem
 			v-for="(item, index) in hobbyList"
-			@showPopup="showPopup"
+			@showPopup="showPopup(index)"
 			:list="item"
 			:index="index"
 			:key="index"
@@ -12,24 +12,27 @@
 		<AppChoser
 			@chose="handleChose"
 			v-for="(item, index) in orgOtherHobby"
-			:name="item.name"
+			:name="item.name" 
 			:options="item.options"
-			:current="item.current"
+			:current="item.current" 
 			:itemIndex="index"
 			:key="item.id"
 		/>
 		<mt-popup
 			v-model="popupVisible"
 			:position="popPosition">
-			<div class="pop_box">
+			<div class="pop_box content">
 				<mt-checklist
 					title="请选择"
 					v-model="value"
 					:options="options">
 				</mt-checklist>
-				<div class="shareFooter">
-					<div class="shareCancel" @click="hiddenShare">取消</div>
-				</div>
+				<mt-field
+					label="其他选项" 
+					v-model="other"
+					placeholder="自己输入,用空格分开"
+					></mt-field>
+				<button @click="hiddenPopup" type="button" class="btn btn-primary">确定</button>
 			</div>
 		</mt-popup>
 	</div>

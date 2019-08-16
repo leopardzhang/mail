@@ -3,7 +3,7 @@
 
 .item {
 	background: white;
-	padding: 10px 12px;
+	padding: 12px 12px;
 	border-top: 10px solid #f4f4f4;
 
 	.item_name {
@@ -23,14 +23,14 @@
 					margin-right: 1em;
 					border: 0;
 					padding: 0;
-					font-size: 16px;
+					font-size: 18px;
 					color: #a3a3a3;
 				}
 			}
 
 			.right_arr {
 				width: 12px;
-				height: 24px;
+				height: 16px;
 
 				@include bg-image("./images/arr_right");
 				background-size: contain;
@@ -46,13 +46,13 @@
 
 				li {
 					width: 33.33%;
-					margin-bottom: 10px;
+					margin-bottom: 6px;
 
 					.badeg {
 						min-width: 4.4em;
 						height: 24px;
 						line-height: 24px;
-						font-size: 16px;
+						font-size: 14px;
 						text-align: center;
 						color: white;
 						background-color: #fed87f;

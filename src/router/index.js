@@ -8,6 +8,8 @@ import login from '@/pages/login/index.vue'
 import hobby from '@/pages/hobby/index.vue'
 import healthy from '@/pages/healthy/index.vue'
 import economy from '@/pages/economy/index.vue'
+import findHim from '@/pages/findHim/index.vue'
+import attention from '@/pages/attention/index.vue'
 
 Vue.use(Router);
 
@@ -48,6 +50,14 @@ export default new Router({
 			path: '/economy',
 			name: 'economy',
 			component: economy
+		}, {
+			path: '/findHim',
+			name: 'findHim',
+			component: findHim
+		}, {
+			path: '/attention',
+			name: 'attention',
+			component: attention
 		}, {
 			path: '/*',
 			redirect: '/login'

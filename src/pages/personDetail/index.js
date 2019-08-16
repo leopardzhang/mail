@@ -1,3 +1,5 @@
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
 	data() {
 		return {
@@ -7,7 +9,7 @@ export default {
 					to: ''
 				}, {
 					name: '注意事项',
-					to: ''
+					to: 'attention'
 				}, {
 					name: '健康情况',
 					to: 'healthy'
@@ -19,13 +21,17 @@ export default {
 					to: ''
 				}, {
 					name: '如何找他办事',
-					to: ''
+					to: 'findHim'
 				}, {
 					name: '备忘录',
 					to: ''
 				}
 			]
 		}
+	},
+
+	computed: {
+		...mapGetters(['currentFriend'])
 	},
 
 	methods: {

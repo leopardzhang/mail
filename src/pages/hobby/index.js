@@ -20,21 +20,25 @@ export default {
 			hobbyList: [
 				{
 					name: '喜好口味',
-					baseList: ['酸辣', '微辣', '酸甜'],
+					key: 'flavor',
+					baseList: ['酸辣', '酸甜'],
 					inputList: ['甜', '抹茶']
 				},
 				{
 					name: '讨厌口味',
+					key: 'flavor',
 					baseList: ['苦', '咸'],
 					inputList: []
 				},
 				{
 					name: '喜好主食',
+					key: 'food',
 					baseList: ['米饭', '打卤面', '饺子'],
 					inputList: ['意大利面', '馄饨']
 				},
 				{
 					name: '喜好菜肴',
+					key: 'dish',
 					baseList: ['鱼香肉丝', '可乐鸡翅', '铁板烧'],
 					inputList: ['黄焖鸡', '锅包肉']
 				}
@@ -123,14 +127,19 @@ export default {
 				}
 			],
 
-			value: []
+			value: [],
+			other: '',
+			currentIndex: null
 		}
 	},
 
 	computed: {
 		...mapGetters([
 			'currentFriend',
-			'userInfo'
+			'userInfo',
+			'flavor',
+			'food',
+			'dish'
 		])
 	},
 
@@ -157,12 +166,28 @@ export default {
 			this.orgOtherHobby[itemIndex].current = index;
 		},
 
-		hiddenShare() {
-			this.popupVisible = false;
-		},
+		showPopup(i) {
+			this.currentIndex = i;
+			const {
+				currentIndex,
+				hobbyList
+			} = this;
+			this.value = this.hobbyList[currentIndex].baseList
+			this.other = this.hobbyList[currentIndex].inputList.join(' ');
 
-		showPopup(index) {
+			this.options = this[hobbyList[currentIndex].key]
 			this.popupVisible = true;
+		},
+		
+		hiddenPopup() {
+			const {
+				currentIndex,
+				hobbyList
+			} = this;
+
+			this.popupVisible = false;
+			this.hobbyList[currentIndex].inputList = this.other.split(' ');
+			this.hobbyList[currentIndex].baseList = [...this.value]
 		}
 	}
 }

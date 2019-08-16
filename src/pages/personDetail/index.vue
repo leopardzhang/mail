@@ -3,15 +3,12 @@
 		<img class="banner" src="../../assets/images/b_02.jpg">
 		<div class="person_info content flex between aic">
 			<div class="info flex column">
-				<span class="name">李老师</span>
-				<span class="tel">13674637162</span>
+				<span class="name">{{ currentFriend.name }}</span>
+				<span class="tel">{{ currentFriend.tel }}</span>
 			</div>
 			<div class="control flex">
 				<div class="tel button">
-					<a href="tel: 13674637162"></a>
-				</div>
-				<div class="sms button">
-					<a href="sms: 13674637162"></a>
+					<a :href="'tel:'+currentFriend.tel"></a>
 				</div>
 			</div>
 		</div>

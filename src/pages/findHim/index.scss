@@ -1,0 +1,108 @@
+@import 'common/variable.scss';
+@import 'common/mixin.scss';
+.source {
+	padding: 10px;
+}
+.relationship {
+	padding: 10px 0;
+	
+	.control_box {
+		padding-top: 10px;
+
+		.persons {
+			.name {
+				font-size: 20px;
+				color: #383838;
+			}
+	
+			.dotted {
+				color: $action-color;
+				font-size: 24px;
+				margin: 0 1em;
+			}
+		}
+	}
+
+	.arrow {
+		width: 20px;
+		height: 12px;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		@include bg-image("./images/arrow");
+	}
+
+	.relationship_list {
+		li {
+			min-height: 65px;
+			flex-basis: 50%;
+			flex-shrink: 1;
+
+			.step_head {
+				flex-grow: 0;
+				width: 15px;
+				position: relative;
+
+				.step_coin {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 17px;
+					height: 17px;
+					border: 2px solid white;
+					background-color: $action-color;
+					border-radius: 50%;
+					display: inline-block;
+				}
+
+				.step_line {
+					position: absolute;
+					left: 7px;
+					width: 3px;
+					top: 0;
+					bottom: 0;
+					background-color: $action-color;
+				}
+			}
+
+			.step_main {
+				padding-left: 10px;
+				flex-grow: 1;
+
+				.friend_name {
+					font-size: 20px;
+					position: relative;
+					color: #383838;
+					padding-left: 20px;
+				}
+
+				.button span {
+					color: #777;
+					font-size: .8em;
+					border: 1px solid $action-color;
+					padding: 4px 6px;
+					display: inline-block;
+					border-radius: 4px;
+				}
+			}
+
+			&:last-child {
+				.step_line {
+					opacity: 0;
+				}
+				
+				.step_coin {
+					border: 2px solid $action-color;
+					background-color: white;
+				}
+			}
+
+			&:first-child {
+				.step_coin {
+					border: 2px solid $action-color;
+					background-color: white;
+				}
+			}
+		}
+	}
+}
