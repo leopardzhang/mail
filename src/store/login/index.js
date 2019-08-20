@@ -5,8 +5,8 @@ import {
 } from '@/common/code'
 
 const state = {
-	userInfo: {},
-	friendsList: [],
+	userInfo: null,
+	friendsList: null,
 	currentFriend: {
 		alcohol: null,
 		appointment: null,
@@ -98,6 +98,8 @@ const actions = {
 				results: params
 			}
 		});
+		localStorage.setItem('userInfo', JSON.stringify(res.obj.user));
+		localStorage.setItem('friendsList', JSON.stringify(res.obj.directoryList));
 
 		if(res.obj.code === ERR_OK) {
 			commit({
@@ -122,8 +124,10 @@ const actions = {
         dispatch,
         state
 	}, id) {
-		const index = _.findIndex(state.friendsList, {'id': id});
-		const allData = state.friendsList[index];
+		const friendsList = state.friendsList ? 
+		state.friendsList : JSON.parse(localStorage.getItem('friendsList'));
+		const index = _.findIndex(friendsList, {'id': id});
+		const allData = friendsList[index];
 
 		let temp = []
 
@@ -145,11 +149,13 @@ const actions = {
 
 const getters = {
 	userInfo(state) {
-		return state.userInfo
+		const userInfo = state.userInfo;
+		return userInfo ? userInfo : JSON.parse(localStorage.getItem('userInfo'))
 	},
 
 	friendsList(state) {
-		return state.friendsList;
+		const friendsList = state.friendsList;
+		return friendsList ? friendsList : JSON.parse(localStorage.getItem('friendsList'))
 	},
 
 	currentFriend(state) {

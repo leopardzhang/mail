@@ -6,6 +6,7 @@ import demo from './demo'
 import register from './register'
 import login from './login'
 import info from './info'
+import memorandum from './memorandum'
 
 Vue.use(Vuex)
 
@@ -16,7 +17,8 @@ const store = new Vuex.Store({
 		demo,
 		register,
 		login,
-		info
+		info,
+		memorandum
 	}
 });
 

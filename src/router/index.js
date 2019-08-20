@@ -10,6 +10,8 @@ import healthy from '@/pages/healthy/index.vue'
 import economy from '@/pages/economy/index.vue'
 import findHim from '@/pages/findHim/index.vue'
 import attention from '@/pages/attention/index.vue'
+import memorandum from '@/pages/memorandum/index.vue'
+
 
 Vue.use(Router);
 
@@ -58,6 +60,10 @@ export default new Router({
 			path: '/attention',
 			name: 'attention',
 			component: attention
+		}, {
+			path: '/memorandum',
+			name: 'memorandum',
+			component: memorandum
 		}, {
 			path: '/*',
 			redirect: '/login'

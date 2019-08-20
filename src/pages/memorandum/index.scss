@@ -1,0 +1,52 @@
+.mem_wrapper {
+	position: fixed;
+	padding-top: 10px;
+	top: 48px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	overflow: auto;
+}
+
+.ava_box {
+	text-align: center;
+	color: #383838;
+	font-size: 20px;
+	padding: 10px 0;
+	background: white;
+
+	img {
+		width: 60px;
+		height: 60px;
+		display: inline-block;
+		border-radius: 50%;
+		margin-bottom: 5px;
+	}
+}
+
+.events-wrapper {
+
+	.event_name {
+		color: #383838;
+		font-size: 20px;
+
+		&::before {
+			content: '';
+			width: 8px;
+			height: 8px;
+			background-color: #feb100;
+			border-radius: 50%;
+			display: inline-block;
+			margin-right: 7px;
+		}
+	}
+
+	.event_time {
+		color: #6f6f6f;
+	}
+}
+
+.addbtn {
+	margin: 20px 0;
+}

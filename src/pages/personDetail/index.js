@@ -24,7 +24,7 @@ export default {
 					to: 'findHim'
 				}, {
 					name: '备忘录',
-					to: ''
+					to: 'memorandum'
 				}
 			]
 		}

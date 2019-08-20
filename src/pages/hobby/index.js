@@ -129,7 +129,7 @@ export default {
 
 			value: [],
 			other: '',
-			currentIndex: null
+			currentIndex: null	//弹出框绑定的索引
 		}
 	},
 
@@ -143,10 +143,12 @@ export default {
 		])
 	},
 
-	mounted() {
+	beforeMount() {
 		this.getHobbyList({
 			code: this.userInfo.code,
 			directoryid: this.currentFriend.id
+		}).then(() => {
+			console.log(this.flavor);
 		});
 	},
 

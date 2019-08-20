@@ -270,3 +270,24 @@ html {
 .index_list .mint-cell-value {
 	flex: 1;
 }
+
+.events-wrapper {
+	background-color: #fff !important;
+	border-radius: 0 !important;
+}
+
+.event-item {
+	box-shadow: none !important;
+}
+
+.events-wrapper .date {
+	display: none;
+}
+
+.cal-wrapper {
+	padding: 0 !important;
+}
+
+.cal-header .title {
+	color: #999 !important;
+}
