@@ -12,6 +12,18 @@ export default {
 		}
 	},
 
+	/**
+	 * 获取好友状况（包括健康，经济等）
+	 */
+	GET_ALL_INFO: {
+		name: 'GET_ALL_INFO',
+
+		proxy: {
+			url: 'cxDirectoryCusController.do?queryDirectory',
+			method: 'GET'
+		}
+	},
+
 
 	/**
 	 * 修改基本信息

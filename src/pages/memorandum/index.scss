@@ -1,7 +1,7 @@
 .mem_wrapper {
 	position: fixed;
 	padding-top: 10px;
-	top: 48px;
+	top: 46px;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -12,7 +12,7 @@
 .ava_box {
 	text-align: center;
 	color: #383838;
-	font-size: 20px;
+	font-size: 18px;
 	padding: 10px 0;
 	background: white;
 
@@ -29,7 +29,7 @@
 
 	.event_name {
 		color: #383838;
-		font-size: 20px;
+		font-size: 18px;
 
 		&::before {
 			content: '';

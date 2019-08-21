@@ -1,6 +1,8 @@
 import AppChoser from '@/components/AppChoser/index.vue'
 import AppHeader from '@/components/AppHeader/index.vue'
-import { Toast } from 'mint-ui'
+import {
+	Toast
+} from 'mint-ui'
 
 import {
 	mapGetters,
@@ -16,87 +18,55 @@ export default {
 	data() {
 		return {
 			name: '健康情况',
-			itemList: [
-				{
-					name: '视力',
-					key: 'vision',
-					options: [
-						{
-							id: 0,
-							name: '良好'
-						}, {
-							id: 1,
-							name: '不良'
-						}
-					],
-					current: 0
-				}, {
-					name: '听力',
-					key: 'hearing',
-					options: [
-						{
-							id: 0,
-							name: '良好'
-						}, {
-							id: 1,
-							name: '不良'
-						}
-					],
-					current: 0
-				}, {
-					name: '社保情况',
-					key: 'socialsecurity',
-					options: [
-						{
-							id: 0,
-							name: '是'
-						}, {
-							id: 1,
-							name: '否'
-						}
-					],
-					current: 0
-				}, {
-					name: '保险',
-					key: 'insurance',
-					options: [
-						{
-							id: 0,
-							name: '是'
-						}, {
-							id: 1,
-							name: '否'
-						}
-					],
-					current: 0
-				}, {
-					name: '有传染病',
-					key: 'contagion',
-					options: [
-						{
-							id: 0,
-							name: '是'
-						}, {
-							id: 1,
-							name: '否'
-						}
-					],
-					current: 0
-				}, {
-					name: '恐惧症',
-					key: 'phobia',
-					options: [
-						{
-							id: 0,
-							name: '是'
-						}, {
-							id: 1,
-							name: '否'
-						}
-					],
-					current: 0
-				}
-			],
+			itemList: [{
+				name: '视力',
+				key: 'vision',
+				options: [
+					'良好',
+					'不良'
+				],
+				current: 0
+			}, {
+				name: '听力',
+				key: 'hearing',
+				options: [
+					'良好',
+					'不良'
+				],
+				current: 0
+			}, {
+				name: '社保情况',
+				key: 'socialsecurity',
+				options: [
+					'是',
+					'否'
+				],
+				current: 0
+			}, {
+				name: '保险',
+				key: 'insurance',
+				options: [
+					'是',
+					'否'
+				],
+				current: 0
+			}, {
+				name: '有传染病',
+				key: 'contagion',
+				options: [
+					'是',
+					'否'
+				],
+				current: 0
+			}, {
+				name: '恐惧症',
+				key: 'phobia',
+				options: [
+					'是',
+					'否'
+				],
+				current: 0
+			}],
 			loading: false
 		}
 	},
@@ -104,18 +74,35 @@ export default {
 	computed: {
 		...mapGetters([
 			'currentFriend',
-			'userInfo'
+			'userInfo',
+			'healthyInfo'
 		])
 	},
 
-	mounted() {
-		this.$nextTick(() => {
-			
+	beforeMount() {
+		const _this = this;
+
+		this.getAllInfo({
+			id: this.currentFriend.id,
+			code: this.userInfo.code
+		}).then(() => {
+			for (const i in _this.healthyInfo) {
+				for (const j in _this.itemList) {
+					if (_this.itemList[j].key == i) {
+						_this.itemList[j].current = _this.itemList[j].options.indexOf(_this.healthyInfo[i])
+					}
+				}
+			}
 		})
+
+
 	},
 
 	methods: {
-		...mapActions(['setHealthy']),
+		...mapActions([
+			'setHealthy',
+			'getAllInfo'
+		]),
 
 		handleChose(data) {
 			const {
@@ -133,7 +120,7 @@ export default {
 			const temp = {};
 
 			for (const index in list) {
-				temp[list[index].key] = list[index].options[list[index].current].name
+				temp[list[index].key] = list[index].options[list[index].current]
 			}
 
 			const params = Object.assign({}, temp, {
@@ -142,12 +129,10 @@ export default {
 			})
 
 			this.setHealthy(params).then(() => {
-				setTimeout(() => {
-					this.loading = false;
-					Toast({
-						message: '保存成功'
-					})
-				}, 1000)
+				this.loading = false;
+				Toast({
+					message: '保存成功'
+				})
 			}).catch(() => {
 				this.loading = false;
 				Toast({
@@ -157,5 +142,3 @@ export default {
 		}
 	}
 }
-
-

@@ -14,7 +14,7 @@
 								:key="index">
 								<div class="radio flex aic" :class="{active: current == index}">
 									<div class="circle"></div>
-									<div class="name">{{ item.name }}</div>
+									<div class="name">{{ item }}</div>
 								</div>
 							</li>
 						</ul>

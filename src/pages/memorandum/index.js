@@ -13,15 +13,19 @@ export default {
 		return {
 			demoEvents: [{
 				date: '2019/08/20',
-				title: '吃喝拉撒',
+				title: '吃喝玩乐',
 				time: '08:30'
 			}, {
 				date: '2019/08/10',
-				title: '吃喝嫖赌',
+				title: '神采奕奕',
 				time: '08:30'
 			}, {
 				date: '2019/08/19',
-				title: '今天',
+				title: '万达的婚礼',
+				time: '18:30'
+			}, {
+				date: '2019/08/22',
+				title: '请假',
 				time: '18:30'
 			}]
 		}
