@@ -26,4 +26,8 @@ npm run lint
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 一个项目是走向成熟还是成为烂项目从产品经理接手那一瞬间就已经决定了
+```
+在这个项目中为了填补后台留下的坑，在代码上我不得不做出很多牺牲，所以并不能代表我真是的水平。同时也欢迎指出不足和问题。
+```
