@@ -14,7 +14,7 @@
 			v-for="(item, index) in orgOtherHobby"
 			:name="item.name" 
 			:options="item.options"
-			:current="item.current" 
+			:current="item.current"
 			:itemIndex="index"
 			:key="item.id"
 		/>
@@ -35,6 +35,7 @@
 				<button @click="hiddenPopup" type="button" class="btn btn-primary">确定</button>
 			</div>
 		</mt-popup>
+		<mt-spinner v-show="loading" class="loading" type="double-bounce" color="#feb100"></mt-spinner>
 	</div>
 </template>
 

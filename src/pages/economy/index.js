@@ -23,19 +23,10 @@ export default {
 				name: '驾驶能力',
 				key: 'divingage',
 				options: [
-					{
-						id: 0,
-						name: '无'
-					}, {
-						id: 1,
-						name: 'A'
-					}, {
-						id: 2,
-						name: 'B'
-					}, {
-						id: 3,
-						name: 'C'
-					}
+					'无',
+					'A',
+					'B',
+					'C'
 				],
 				current: 0
 			}],

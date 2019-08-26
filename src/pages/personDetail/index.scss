@@ -84,7 +84,7 @@
 		}
 	}
 
-	@for $i from 1 through 7 {
+	@for $i from 1 through 8 {
 		li:nth-child(#{$i}) .icon {
 			@include bg-image("./images/icon#{$i}");
 		}

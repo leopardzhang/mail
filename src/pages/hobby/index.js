@@ -1,6 +1,10 @@
 import AppItem from '@/components/AppItem/index.vue'
 import AppChoser from '@/components/AppChoser/index.vue'
 import AppHeader from '@/components/AppHeader/index.vue'
+import _ from 'lodash'
+import {
+	Toast
+} from 'mint-ui'
 
 import {
 	mapActions,
@@ -21,26 +25,26 @@ export default {
 				{
 					name: '喜好口味',
 					key: 'flavor',
-					baseList: ['酸辣', '酸甜'],
-					inputList: ['甜', '抹茶']
+					baseList: [],
+					inputList: []
 				},
 				{
 					name: '讨厌口味',
-					key: 'flavor',
-					baseList: ['苦', '咸'],
+					key: 'hateflavor',
+					baseList: [],
 					inputList: []
 				},
 				{
 					name: '喜好主食',
 					key: 'food',
-					baseList: ['米饭', '打卤面', '饺子'],
-					inputList: ['意大利面', '馄饨']
+					baseList: [],
+					inputList: []
 				},
 				{
 					name: '喜好菜肴',
 					key: 'dish',
-					baseList: ['鱼香肉丝', '可乐鸡翅', '铁板烧'],
-					inputList: ['黄焖鸡', '锅包肉']
+					baseList: [],
+					inputList: []
 				}
 			],
 
@@ -49,87 +53,44 @@ export default {
 					name: '吸烟情况',
 					key: 'smoke',
 					options: [
-						{
-							id: 0,
-							name: '吸烟'
-						},{
-							id: 1,
-							name: '不吸烟'
-						},{
-							id: 2,
-							name: '已戒烟'
-						}
+						'吸烟',
+						'不吸烟',
+						'已戒烟'
 					],
-					current: 1
+					current: 0
 				},
 				{
 					name: '饮酒情况',
 					key: 'alcohol',
 					options: [
-						{
-							id: 0,
-							name: '饮酒'
-						},{
-							id: 1,
-							name: '不饮酒'
-						},{
-							id: 2,
-							name: '已戒酒'
-						}
+						'饮酒',
+						'不饮酒',
+						'已戒酒'
 					],
-					current: 1
+					current: 0
 				},
 				{
 					name: '饮茶情况',
 					key: 'tea',
 					options: [
-						{
-							id: 0,
-							name: '经常'
-						},{
-							id: 1,
-							name: '偶尔'
-						},{
-							id: 2,
-							name: '从不'
-						}
+						'经常',
+						'偶尔',
+						'从不'
 					],
-					current: 1
+					current: 0
 				}
 			],
-
-			otherHobby: {
-				smoke: '已戒烟',
-				wine: '不饮酒',
-				tea: '经常'
-			},
 
 			popupVisible: false,
 
 			popPosition: 'right',
 
-			options: [
-				{
-					label: '被禁用',
-					value: '值F'
-				},
-				{
-					label: '选中禁用',
-					value: '选中禁用的值'
-				},
-				{
-					label: '选项A',
-					value: '值A'
-				},
-				{
-					label: '选项B',
-					value: '值B'
-				}
-			],
+			options: [],
 
 			value: [],
 			other: '',
-			currentIndex: null	//弹出框绑定的索引
+			currentIndex: null,	//弹出框绑定的索引
+			loading: false		//loading状态
 		}
 	},
 
@@ -138,25 +99,79 @@ export default {
 			'currentFriend',
 			'userInfo',
 			'flavor',
+			'hateflavor',
 			'food',
-			'dish'
+			'dish',
+			'preservation',
+			'hobbyInfoChecked'
 		])
 	},
 
 	beforeMount() {
+		const _this = this;
+
 		this.getHobbyList({
 			code: this.userInfo.code,
 			directoryid: this.currentFriend.id
 		}).then(() => {
-			console.log(this.flavor);
+			this.hobbyList[0].baseList = this.hobbyInfoChecked.flavor;
+			this.hobbyList[1].baseList = this.hobbyInfoChecked.hateflavor;
+			this.hobbyList[2].baseList = this.hobbyInfoChecked.food;
+			this.hobbyList[3].baseList = this.hobbyInfoChecked.dish;
 		});
+
+		this.getAllInfo({
+			id: this.currentFriend.id,
+			code: this.userInfo.code
+		}).then(() => {
+			for (const i in _this.preservation) {
+				for (const j in _this.orgOtherHobby) {
+					if (_this.orgOtherHobby[j].key == i) {
+						_this.orgOtherHobby[j].current = 
+						_this.orgOtherHobby[j].options.indexOf(_this.preservation[i])
+					}
+				}
+			}
+		})
 	},
 
 	methods: {
-		...mapActions(['getHobbyList']),
+		...mapActions([
+			'getHobbyList',
+			'getAllInfo',
+			'setHobbyInfo'
+		]),
 
 		save () {
+			const params = {};
 
+			for(const i in this.hobbyList) {
+				params[this.hobbyList[i].key] = 
+				_.concat(this.hobbyList[i].baseList, this.hobbyList[i].inputList)
+			}
+
+			for(const item of this.orgOtherHobby) {
+				params[item.key] = item.options[item.current]
+			}
+
+			Object.assign(params, {
+				hobbyflavor: params.flavor
+			}, {
+				directoryid: this.currentFriend.id,
+				code: this.userInfo.code
+			});
+
+			this.setHobbyInfo(params).then(() => {
+				this.loading = false;
+				Toast({
+					message: '保存成功'
+				})
+			}).catch(() => {
+				this.loading = false;
+				Toast({
+					message: '保存失败请重试'
+				})
+			})
 		},
 
 		handleChose(data) {
@@ -170,10 +185,12 @@ export default {
 
 		showPopup(i) {
 			this.currentIndex = i;
+
 			const {
 				currentIndex,
 				hobbyList
 			} = this;
+
 			this.value = this.hobbyList[currentIndex].baseList
 			this.other = this.hobbyList[currentIndex].inputList.join(' ');
 

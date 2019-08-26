@@ -14,6 +14,9 @@ export default {
 					name: '健康情况',
 					to: 'healthy'
 				}, {
+					name: '经济情况',
+					to: 'economy'
+				}, {
 					name: '个人喜好',
 					to: 'hobby'
 				}, {
