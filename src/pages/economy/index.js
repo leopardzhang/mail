@@ -3,6 +3,15 @@ import AppHeader from '@/components/AppHeader/index.vue'
 import AppInfo from '@/components/AppInfo/index.vue'
 import AppItem from '@/components/AppItem/index.vue'
 
+import {
+	Toast
+} from 'mint-ui'
+
+import {
+	mapGetters,
+	mapActions
+} from 'vuex';
+
 export default {
 	components: {
 		AppChoser,
@@ -31,19 +40,47 @@ export default {
 				current: 0
 			}],
 
-			car: [{
+			wagenList: [{
 				name: '车辆',
-				baseList: ['大众', '斯柯达', '奥迪'],
+				key: 'car',
+				baseList: [],
 				inputList: ['雷克萨斯', 'wey']
-			}]
+			}],
+
+			popupVisible: false,
+
+			popPosition: 'right',
+
+			options: [],
+
+			value: [],
+			other: '',
+			currentIndex: null, //弹出框绑定的索引
+			loading: false //loading状态
 		}
 	},
 
-	mounted() {
-		
+	computed: {
+		...mapGetters([
+			'currentFriend',
+			'userInfo',
+			'car'
+		])
+	},
+
+	beforeMount() {
+		this.loan.value = this.currentFriend.loan || 0;
 	},
 
 	methods: {
+		...mapActions([
+			'setFriendEconomy'
+		]),
+
+		changeLoanValue(val) {
+			this.loan.value = parseInt(val);
+		},
+
 		handleChose(data) {
 			const {
 				index,
@@ -53,8 +90,76 @@ export default {
 			this.divingage[itemIndex].current = index;
 		},
 
-		save() {
+		showPopup(i) {
+			this.currentIndex = i;
 
+			const {
+				currentIndex,
+				wagenList
+			} = this;
+
+			this.value = this.wagenList[currentIndex].baseList
+			this.other = this.wagenList[currentIndex].inputList.join(' ');
+
+			this.options = this[wagenList[currentIndex].key]
+			this.popupVisible = true;
+		},
+
+		save() {
+			const _this = this;
+			const carList = [];
+			for (const item of this.wagenList[0].inputList) {
+				carList.push(item)
+			}
+			for (const item of this.wagenList[0].baseList) {
+				carList.push(item)
+			}
+
+			const {
+				id,
+				code,
+				drivingage,
+				driving,
+				loan,
+				car
+			} = {
+				id: this.currentFriend.id,
+				code: this.userInfo.code,
+				drivingage: this.divingage[0].current == 0 ? '无' : this.divingage[0].options[this.divingage[0].current],
+				driving: this.divingage[0].current == 0 ? '无' : '有',
+				loan: this.loan.value,
+				car: carList
+			}
+
+			this.setFriendEconomy({
+				id,
+				code,
+				drivingage,
+				driving,
+				loan,
+				car
+			}).then(() => {
+				this.loading = false;
+				Toast({
+					message: '保存成功'
+				})
+			}).catch(() => {
+				this.loading = false;
+				Toast({
+					message: '保存失败请重试'
+				})
+			})
+		},
+
+		hiddenPopup() {
+			const {
+				currentIndex,
+				wagenList
+			} = this;
+
+			this.popupVisible = false;
+			this.wagenList[currentIndex].inputList = this.other.split(' ');
+			this.wagenList[currentIndex].baseList = [...this.value]
 		}
-	},
+	}
 }

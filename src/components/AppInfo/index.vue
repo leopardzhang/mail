@@ -1,13 +1,16 @@
 <template>
 	<div class="item">
 		<div>
-			<div class="flex">
+			<div class="flex aic">
 				<div class="item_name">
 					<p>{{ name }}</p>
 				</div>
 				<div class="chose_area">
 					<div class="radio_box">
-						<p class="info_value">{{ value }}</p>
+						<input
+							class="info_value"
+							type="text" v-model="loan"
+							 @input="updateMessage">
 					</div>
 				</div>
 			</div>

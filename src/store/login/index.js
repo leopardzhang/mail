@@ -70,6 +70,7 @@ const state = {
 const SET_USERINFO = 'SET_USERINFO'
 const SET_FRIENDS_LIST = 'SET_FRIENDS_LIST'
 const SET_CURRENT_FRIEND = 'SET_CURRENT_FRIEND'
+const SET_FRIENDS_LOAN = 'SET_FRIENDS_LOAN'
 
 
 const mutations = {
@@ -83,6 +84,10 @@ const mutations = {
 	
 	[SET_CURRENT_FRIEND] (state, mutation) {
 		state.currentFriend = mutation.payload
+	},
+
+	[SET_FRIENDS_LOAN] (state, mutation) {
+		state.currentFriend.loan = mutation.payload
 	}
 }
 
@@ -143,6 +148,15 @@ const actions = {
 		commit({
 			type: SET_CURRENT_FRIEND,
 			payload: Object.assign({}, allData)
+		})
+	},
+
+	async setFriendLoan({
+		commit
+	}, val) {
+		commit({
+			type: SET_FRIENDS_LOAN,
+			payload: val
 		})
 	}
 }
