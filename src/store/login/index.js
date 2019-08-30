@@ -11,12 +11,12 @@ const state = {
 		alcohol: "已戒酒",
 		appointment: null,
 		bloodtype: "A",
-		car: null,
+		car: ['速派', '帕萨特'],
 		constellation: "射手座",
 		contagion: null,
 		crime: "无",
-		driving: null,
-		drivingage: null,
+		driving: '有',
+		drivingage: 'A',
 		education: "大专",
 		fertility: "未生育",
 		hearing: null,
@@ -174,6 +174,18 @@ const getters = {
 
 	currentFriend(state) {
 		return state.currentFriend
+	},
+
+	driveAble(state) {		//驾驶能力
+		return state.currentFriend.drivingage || '无'
+	},
+
+	driving(state) {
+		return state.currentFriend.driving
+	},
+
+	cars(state) {
+		return state.currentFriend.car
 	}
 }
 

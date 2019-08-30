@@ -44,7 +44,7 @@ export default {
 				name: '车辆',
 				key: 'car',
 				baseList: [],
-				inputList: ['雷克萨斯', 'wey']
+				inputList: []
 			}],
 
 			popupVisible: false,
@@ -64,12 +64,20 @@ export default {
 		...mapGetters([
 			'currentFriend',
 			'userInfo',
-			'car'
+			'cars',
+			'driving',
+			'driveAble'
 		])
 	},
 
 	beforeMount() {
 		this.loan.value = this.currentFriend.loan || 0;
+		
+		const curr = this.divingage[0].options.indexOf(this.driveAble)
+
+		this.divingage[0].current = curr;
+		console.log(this.cars);
+		this.wagenList[0].baseList = this.cars;
 	},
 
 	methods: {

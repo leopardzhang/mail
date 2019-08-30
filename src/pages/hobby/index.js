@@ -114,6 +114,7 @@ export default {
 			code: this.userInfo.code,
 			directoryid: this.currentFriend.id
 		}).then(() => {
+			console.log(this.hobbyInfoChecked.flavor);
 			this.hobbyList[0].baseList = this.hobbyInfoChecked.flavor;
 			this.hobbyList[1].baseList = this.hobbyInfoChecked.hateflavor;
 			this.hobbyList[2].baseList = this.hobbyInfoChecked.food;
