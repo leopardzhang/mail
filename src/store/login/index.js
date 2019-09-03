@@ -92,6 +92,9 @@ const mutations = {
 }
 
 const actions = {
+	/**
+	 * 登录
+	 */
 	async login({
 		commit,
         dispatch,
@@ -120,10 +123,13 @@ const actions = {
 		} else {
 			throw Error('用户名或密码错误');
 		}
-
-		
 	},
 
+	/**
+	 * 设置当前选中的朋友
+	 * @param {*} param0 
+	 * @param {*} id 
+	 */
 	async setCurrentFriend ({
 		commit,
         dispatch,

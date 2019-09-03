@@ -4,7 +4,7 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import '@assets/normalize.css'
-import '@assets/bootstrap.css'
+// import '@assets/bootstrap.css'
 import 'vue-event-calendar/dist/style.css'
 import vueEventCalendar from 'vue-event-calendar'
 

@@ -5,25 +5,23 @@
 				<div>
                     <form class="form-signin">
 						<div class="account-logo">
-                            <a href="index.html"><img src="assets/img/logo-dark.png" alt=""></a>
+                            <h1 class="logo_title">新用户注册</h1>
                         </div>
                         <div class="form-group">
-                            <label>Username or Email</label>
-                            <input v-model="registerForm.username" type="text" autofocus="" class="form-control">
+                            <input v-model="registerForm.username" type="text" placeholder="请输入用户名" class="form-control">
                         </div>
 						<div class="form-group">
-                            <label>Password</label>
-                            <input v-model="registerForm.password" type="password" autofocus="" class="form-control">
+                            <input v-model="registerForm.password" type="password" placeholder="请输入密码" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Tel</label>
-                            <input v-model="registerForm.tel" type="tel" class="form-control">
-                        </div>
-                        <div class="form-group text-right">
+                            <input v-model="registerForm.tel" type="tel" placeholder="请输入手机号" class="form-control">
+
+                        <div class="form-group go_to_login text-right">
                             <router-link to="login">已有账号？去登录</router-link>
                         </div>
+						</div>
                         <div class="form-group text-center">
-                            <button @click="handleSubmit" type="button" class="btn btn-primary account-btn">注册</button>
+							<mt-button @click="handleSubmit" type="primary" size="large">注册</mt-button>
 						</div>
                     </form>
                 </div>

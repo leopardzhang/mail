@@ -11,6 +11,7 @@ export default {
 		AppChoser,
 		AppInfo
 	},
+	
 	data() {
 		return {
 			routerList: [{

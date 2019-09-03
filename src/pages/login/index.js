@@ -14,6 +14,16 @@ export default {
 		}
 	},
 
+	beforeCreate() {
+		const userInfo = localStorage.getItem('userInfo');
+		console.log(userInfo);
+		if(userInfo) {
+			this.$router.push({
+				name: 'index'
+			});
+		}
+	},
+
 	methods: {
 		...mapActions(['login']),
 

@@ -291,3 +291,13 @@ html {
 .cal-header .title {
 	color: #999 !important;
 }
+
+.text-right {
+	text-align: right;
+}
+
+.go_to_login {
+	font-size: 14px;
+	color: #a6a6a6;
+	padding-top: 10px;
+}

@@ -36,7 +36,7 @@
 					v-model="other"
 					placeholder="自己输入,用空格分开"
 					></mt-field>
-				<button @click="hiddenPopup" type="button" class="btn btn-primary">确定</button>
+				<mt-button @click="hiddenPopup" type="primary" size="large">确定</mt-button>
 			</div>
 		</mt-popup>
 		<mt-spinner v-show="loading" class="loading" type="double-bounce" color="#feb100"></mt-spinner>

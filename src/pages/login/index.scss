@@ -19,6 +19,7 @@
 	height: 100%;
 	padding: 30px;
 	width: 100%;
+	background-color: white;
 }
 .account-center {
 	display: table-cell;
@@ -37,10 +38,6 @@
 }
 .account-box .form-group {
 	margin-bottom: 20px;
-}
-.form-group label {
-	display: inline-block;
-	margin-bottom: 5px;
 }
 .account-box a {
 	color: #333;
@@ -74,4 +71,32 @@
 	min-width: 150px;
 	padding: 8px 30px;
 	text-transform: uppercase;
+}
+
+.logo_title {
+	font-size: 30px;
+	text-align: left;
+	padding-bottom: 20px;
+}
+
+.form-group {
+	padding-bottom: 32px;
+
+	.form-control {
+		width: 100%;
+		border: none;
+		border-bottom: 1px solid #c5c5c5;
+		line-height: 32px;
+		font-size: 20px;
+		box-shadow: none;
+
+		&:focus {
+			outline: none;
+			color: #bfbfbf;
+		}
+
+		&::placeholder {
+			color: #bfbfbf;
+		}
+	}
 }
