@@ -17,14 +17,16 @@ const state = {
 		flavor: [],
 		hateflavor: [],
 		food: [],
-		dish: []
+		dish: [],
+		car: []
 	},
 
 	hobbyInfoChecked: {
 		flavor: [],
 		hateflavor: [],
 		food: [],
-		dish: []
+		dish: [],
+		car: []
 	},
 
 	healthyInfo: {},
@@ -78,7 +80,7 @@ const actions = {
 			smoke, //吸烟
 			tea, //喝茶
 			alcohol //饮酒
-		} = res.obj[0]
+		} = res.obj.directory[0]
 
 		commit({
 			type: SET_HEALTHY_INFO,
@@ -150,14 +152,21 @@ const actions = {
 			dishList, //默认菜肴列表
 			flavorList, //默认口味列表
 			foodList //默认主食列表
-		} = res.obj
+		} = res.obj;
+
+		const {
+			carList,
+			directorycarrelationshipList
+		} = res.obj.directory;
 
 		const [
 			flavor,
 			hateflavor,
 			food,
-			dish
+			dish,
+			car
 		] = [
+			[],
 			[],
 			[],
 			[],
@@ -167,7 +176,7 @@ const actions = {
 		for (const i in directoryflavorrelationshipList) {
 			for (const j in flavorList) {
 				if (directoryflavorrelationshipList[i].flavorid == flavorList[j].id) {
-					if(directoryflavorrelationshipList[i].state) {
+					if (directoryflavorrelationshipList[i].state) {
 						flavor.push(flavorList[j].flavor)
 					} else {
 						hateflavor.push(flavorList[j].flavor)
@@ -192,13 +201,22 @@ const actions = {
 			}
 		}
 
+		for (const i in directorycarrelationshipList) {
+			for (const j in carList) {
+				if (directorycarrelationshipList[i].carid == carList[j].id) {
+					car.push(carList[j].name)
+				}
+			}
+		}
+
 		commit({
 			type: SET_HOBBY_INFO,
 			payload: {
 				flavor: removeID(flavorList, 'flavor'),
 				food: removeID(foodList, 'food'),
 				dish: removeID(dishList, 'dish'),
-				hateflavor: removeID(flavorList, 'flavor')
+				hateflavor: removeID(flavorList, 'flavor'),
+				car: removeID(carList, 'name')
 			}
 		})
 
@@ -208,7 +226,8 @@ const actions = {
 				flavor,
 				hateflavor,
 				food,
-				dish
+				dish,
+				car
 			}
 		})
 	},
@@ -253,6 +272,10 @@ const getters = {
 
 	dish(state) {
 		return state.hobbyInfo.dish
+	},
+
+	car() {
+		return state.hobbyInfo.car
 	},
 
 	healthyInfo(state) {

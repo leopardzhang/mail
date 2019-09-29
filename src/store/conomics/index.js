@@ -4,7 +4,7 @@ import {
 } from '@/common/code'
 
 const state = {
-	car: ['凯美瑞', '速派', '帕萨特']
+	
 }
 
 const mutations = {
@@ -34,9 +34,7 @@ const actions = {
 }
 
 const getters = {
-	car(state) {
-		return state.car
-	}
+	
 }
 
 export default {

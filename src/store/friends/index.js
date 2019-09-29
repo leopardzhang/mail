@@ -8,18 +8,22 @@ const state = {
 }
 
 const GET_COMMON_FRIDNES = 'GET_COMMON_FRIDNES'
+const ADD_FRIEND = 'ADD_FRIEND'
 
 const mutations = {
 	[GET_COMMON_FRIDNES](state, mutation) {
 		state.commonFriends = mutation.payload
+	},
+
+	[ADD_FRIEND](state, mutation) {
+		state.ADD_FRIEND = mutation.payload
 	}
 }
 
 const actions = {
 	async getCommonFriends({
 		commit,
-		dispatch,
-		state
+		dispatch
 	}, params) {
 		const res = await dispatch('$apiCall', {
 			config: $apiConf.GET_COMMON_FRIENDS,
@@ -36,6 +40,30 @@ const actions = {
 		})
 
 		console.log(res);
+	},
+
+	/**
+	 * 添加好友
+	 */
+	async addFriend({
+		commit,
+		dispatch,
+		state
+	}, params) {
+
+		const res = await dispatch('$apiCall', {
+			config: $apiConf.ADD_FRIEND,
+			params: {
+				results: params
+			}
+		})
+
+		if (res.success) {
+			localStorage.setItem('friendsList', JSON.stringify(res.obj.directoryList));
+			return 0;
+		} else {
+			throw Error('添加失败请重试');
+		}
 	}
 }
 

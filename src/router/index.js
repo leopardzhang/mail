@@ -11,7 +11,7 @@ import economy from '@/pages/economy/index.vue'
 import findHim from '@/pages/findHim/index.vue'
 import attention from '@/pages/attention/index.vue'
 import memorandum from '@/pages/memorandum/index.vue'
-
+import addPerson from '@/pages/addPerson/index.vue'
 
 Vue.use(Router);
 
@@ -64,6 +64,10 @@ export default new Router({
 			path: '/memorandum',
 			name: 'memorandum',
 			component: memorandum
+		}, {
+			path: '/addPerson',
+			name: 'addPerson',
+			component: addPerson
 		}, {
 			path: '/*',
 			redirect: '/login'

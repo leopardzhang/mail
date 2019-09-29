@@ -64,25 +64,32 @@ export default {
 		...mapGetters([
 			'currentFriend',
 			'userInfo',
-			'cars',
+			'car',
 			'driving',
-			'driveAble'
+			'driveAble',
+			'hobbyInfoChecked'
 		])
 	},
 
 	beforeMount() {
 		this.loan.value = this.currentFriend.loan || 0;
-		
+
 		const curr = this.divingage[0].options.indexOf(this.driveAble)
 
 		this.divingage[0].current = curr;
-		console.log(this.cars);
-		this.wagenList[0].baseList = this.cars;
+
+		this.getHobbyList({
+			id: this.currentFriend.id,
+			code: this.userInfo.code
+		}).then(() => {
+			this.wagenList[0].baseList = this.hobbyInfoChecked.car;
+		})
 	},
 
 	methods: {
 		...mapActions([
-			'setFriendEconomy'
+			'setFriendEconomy',
+			'getHobbyList'
 		]),
 
 		changeLoanValue(val) {
@@ -114,8 +121,8 @@ export default {
 		},
 
 		save() {
-			const _this = this;
 			const carList = [];
+
 			for (const item of this.wagenList[0].inputList) {
 				carList.push(item)
 			}

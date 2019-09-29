@@ -4,19 +4,20 @@ import {
 } from 'vuex'
 import { Toast } from 'mint-ui'
 
+
 export default {
 	data() {
 		return {
 			loginForm: {
-				username: 'zjnn',
-				password: 'zjnn'
+				username: '',
+				password: ''
 			}
 		}
 	},
 
 	beforeCreate() {
 		const userInfo = localStorage.getItem('userInfo');
-		console.log(userInfo);
+
 		if(userInfo) {
 			this.$router.push({
 				name: 'index'
@@ -35,7 +36,7 @@ export default {
 			}).catch((err) => {
 				Toast({
 					message: '用户名或密码错误'
-				  });
+				});
 			})
 		}
 	}

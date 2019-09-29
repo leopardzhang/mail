@@ -6,7 +6,7 @@ import {
 export default {
 	data() {
 		return {
-			msg: 'hello啊'
+			msg: ''
 		}
 	},
 
@@ -23,7 +23,7 @@ export default {
 
 		addPerson () {
 			this.$router.push({
-				name: 'personDetail'
+				name: 'addPerson'
 			});
 		},
 

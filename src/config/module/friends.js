@@ -10,5 +10,16 @@ export default {
 			url: 'cxCommonfriendsCusController.do?queryCommonfriendsList',
 			method: 'GET'
 		}
+	},
+	/**
+	 * 添加好友
+	 */
+	ADD_FRIEND: {
+		name: 'ADD_FRIEND',
+
+		proxy: {
+			url: 'cxDirectoryCusController.do?addDirectory',
+			method: 'GET'
+		}
 	}
 }

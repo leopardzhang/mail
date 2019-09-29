@@ -24,7 +24,6 @@ export default {
 		}
 	},
 
-
 	/**
 	 * 修改基本信息
 	 */
@@ -36,7 +35,6 @@ export default {
 			method: 'GET'
 		}
 	},
-
 
 	/**
 	 * 修改健康信息

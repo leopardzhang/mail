@@ -21,8 +21,7 @@ export default {
 	data() {
 		return {
 			name: '个人喜好',
-			hobbyList: [
-				{
+			hobbyList: [{
 					name: '喜好口味',
 					key: 'flavor',
 					baseList: [],
@@ -48,8 +47,7 @@ export default {
 				}
 			],
 
-			orgOtherHobby: [
-				{
+			orgOtherHobby: [{
 					name: '吸烟情况',
 					key: 'smoke',
 					options: [
@@ -89,8 +87,8 @@ export default {
 
 			value: [],
 			other: '',
-			currentIndex: null,	//弹出框绑定的索引
-			loading: false		//loading状态
+			currentIndex: null, //弹出框绑定的索引
+			loading: false //loading状态
 		}
 	},
 
@@ -107,33 +105,35 @@ export default {
 		])
 	},
 
-	beforeMount() {
-		const _this = this;
+	beforeRouteEnter(to, from, next) {
+		next(vm => {
+			const _this = vm;
 
-		this.getHobbyList({
-			code: this.userInfo.code,
-			directoryid: this.currentFriend.id
-		}).then(() => {
-			console.log(this.hobbyInfoChecked.flavor);
-			this.hobbyList[0].baseList = this.hobbyInfoChecked.flavor;
-			this.hobbyList[1].baseList = this.hobbyInfoChecked.hateflavor;
-			this.hobbyList[2].baseList = this.hobbyInfoChecked.food;
-			this.hobbyList[3].baseList = this.hobbyInfoChecked.dish;
-		});
+			_this.getHobbyList({
+				code: _this.userInfo.code,
+				directoryid: _this.currentFriend.id
+			}).then(() => {
+				_this.hobbyList[0].baseList = _this.hobbyInfoChecked.flavor;
+				_this.hobbyList[1].baseList = _this.hobbyInfoChecked.hateflavor;
+				_this.hobbyList[2].baseList = _this.hobbyInfoChecked.food;
+				_this.hobbyList[3].baseList = _this.hobbyInfoChecked.dish;
+			});
 
-		this.getAllInfo({
-			id: this.currentFriend.id,
-			code: this.userInfo.code
-		}).then(() => {
-			for (const i in _this.preservation) {
-				for (const j in _this.orgOtherHobby) {
-					if (_this.orgOtherHobby[j].key == i) {
-						_this.orgOtherHobby[j].current = 
-						_this.orgOtherHobby[j].options.indexOf(_this.preservation[i])
+			_this.getAllInfo({
+				id: _this.currentFriend.id,
+				code: _this.userInfo.code
+			}).then(() => {
+				for (const i in _this.preservation) {
+					for (const j in _this.orgOtherHobby) {
+						if (_this.orgOtherHobby[j].key == i) {
+							_this.orgOtherHobby[j].current =
+								_this.orgOtherHobby[j].options.indexOf(_this.preservation[i])
+						}
 					}
 				}
-			}
+			})
 		})
+
 	},
 
 	methods: {
@@ -143,15 +143,15 @@ export default {
 			'setHobbyInfo'
 		]),
 
-		save () {
+		save() {
 			const params = {};
 
-			for(const i in this.hobbyList) {
-				params[this.hobbyList[i].key] = 
-				_.concat(this.hobbyList[i].baseList, this.hobbyList[i].inputList)
+			for (const i in this.hobbyList) {
+				params[this.hobbyList[i].key] =
+					_.concat(this.hobbyList[i].baseList, this.hobbyList[i].inputList)
 			}
 
-			for(const item of this.orgOtherHobby) {
+			for (const item of this.orgOtherHobby) {
 				params[item.key] = item.options[item.current]
 			}
 
@@ -198,7 +198,7 @@ export default {
 			this.options = this[hobbyList[currentIndex].key]
 			this.popupVisible = true;
 		},
-		
+
 		hiddenPopup() {
 			const {
 				currentIndex,

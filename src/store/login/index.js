@@ -7,56 +7,7 @@ import {
 const state = {
 	userInfo: null,
 	friendsList: null,
-	currentFriend: {
-		alcohol: "已戒酒",
-		appointment: null,
-		bloodtype: "A",
-		car: ['速派', '帕萨特'],
-		constellation: "射手座",
-		contagion: null,
-		crime: "无",
-		driving: '有',
-		drivingage: 'A',
-		education: "大专",
-		fertility: "未生育",
-		hearing: null,
-		id: "7ac90e8b-bb61-11e9-8737-fa163eec8269",
-		insurance: null,
-		loan: null,
-		marriage: "未婚",
-		name: "张加楠",
-		other: null,
-		phobia: null,
-		politics: "群众",
-		religion: "无",
-		smoke: "不吸烟",
-		socialsecurity: null,
-		tea: "经常",
-		tel: "18348544430",
-		vision: null,
-		zodiac: "兔",
-		healthy: [
-			{
-				name: "vision",
-				value: null
-			}, {
-				name: "hearing",
-				value: null
-			}, {
-				name: "socialsecurity",
-				value: null
-			}, {
-				name: "insurance",
-				value: null
-			}, {
-				name: "contagion",
-				value: null
-			}, {
-				name: "phobia",
-				value: null
-			}
-		]
-	},
+	currentFriend: {},
 	healthyKey: [
 		'vision',
 		'hearing',
@@ -74,19 +25,19 @@ const SET_FRIENDS_LOAN = 'SET_FRIENDS_LOAN'
 
 
 const mutations = {
-	[SET_USERINFO] (state, mutation) {
+	[SET_USERINFO](state, mutation) {
 		state.userInfo = Object.assign({}, mutation.payload)
 	},
 
-	[SET_FRIENDS_LIST] (state, mutation) {
+	[SET_FRIENDS_LIST](state, mutation) {
 		state.friendsList = mutation.payload
 	},
-	
-	[SET_CURRENT_FRIEND] (state, mutation) {
+
+	[SET_CURRENT_FRIEND](state, mutation) {
 		state.currentFriend = mutation.payload
 	},
 
-	[SET_FRIENDS_LOAN] (state, mutation) {
+	[SET_FRIENDS_LOAN](state, mutation) {
 		state.currentFriend.loan = mutation.payload
 	}
 }
@@ -97,8 +48,8 @@ const actions = {
 	 */
 	async login({
 		commit,
-        dispatch,
-        state
+		dispatch,
+		state
 	}, params) {
 		const res = await dispatch('$apiCall', {
 			config: $apiConf.LOGIN,
@@ -106,19 +57,20 @@ const actions = {
 				results: params
 			}
 		});
-		localStorage.setItem('userInfo', JSON.stringify(res.obj.user));
-		localStorage.setItem('friendsList', JSON.stringify(res.obj.directoryList));
 
-		if(res.obj.code === ERR_OK) {
+		if (res.obj.code === ERR_OK) {
 			commit({
 				type: SET_USERINFO,
 				payload: res.obj.user
 			})
-	
+
 			commit({
 				type: SET_FRIENDS_LIST,
 				payload: res.obj.directoryList
 			})
+
+			localStorage.setItem('userInfo', JSON.stringify(res.obj.user));
+			localStorage.setItem('friendsList', JSON.stringify(res.obj.directoryList));
 
 		} else {
 			throw Error('用户名或密码错误');
@@ -130,19 +82,21 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} id 
 	 */
-	async setCurrentFriend ({
+	async setCurrentFriend({
 		commit,
-        dispatch,
-        state
+		dispatch,
+		state
 	}, id) {
-		const friendsList = state.friendsList ? 
-		state.friendsList : JSON.parse(localStorage.getItem('friendsList'));
-		const index = _.findIndex(friendsList, {'id': id});
+		const friendsList = state.friendsList ?
+			state.friendsList : JSON.parse(localStorage.getItem('friendsList'));
+		const index = _.findIndex(friendsList, {
+			'id': id
+		});
 		const allData = friendsList[index];
 
 		let temp = []
 
-		for(const item of state.healthyKey) {
+		for (const item of state.healthyKey) {
 			temp.push({
 				name: item,
 				value: allData[item]
@@ -150,7 +104,7 @@ const actions = {
 		}
 
 		allData.healthy = temp;
-		
+
 		commit({
 			type: SET_CURRENT_FRIEND,
 			payload: Object.assign({}, allData)
@@ -182,7 +136,7 @@ const getters = {
 		return state.currentFriend
 	},
 
-	driveAble(state) {		//驾驶能力
+	driveAble(state) { //驾驶能力
 		return state.currentFriend.drivingage || '无'
 	},
 
@@ -190,14 +144,20 @@ const getters = {
 		return state.currentFriend.driving
 	},
 
-	cars(state) {
-		return state.currentFriend.car
-	}
+	// cars(state) {
+	// 	const cars = state.currentFriend.car;
+	// 	let temp = cars.substr(1);
+	// 	temp = temp.substr(0, temp.length - 1);
+	// 	temp = temp.replace(/"/g, '');
+	// 	const arr = temp.split(',');
+
+	// 	return arr;
+	// }
 }
 
 export default {
-    state,
-    mutations,
-    actions,
-    getters
+	state,
+	mutations,
+	actions,
+	getters
 };

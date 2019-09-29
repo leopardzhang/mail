@@ -15,9 +15,7 @@
 		</div>
 		<div class="router_container">
 			<transition :name="transitionName">
-				<keep-alive>
-					<router-view class="Router" />
-				</keep-alive>
+				<router-view class="Router" />
 			</transition>
 		</div>
 	</main>

@@ -41,7 +41,7 @@ const actions = {
 				}
 			});
 	
-			if(res.obj.code !== ERR_OK) {
+			if(res.obj.code === ERR_OK) {
 				return {
 					code: 0,
 					msg: res.msg
