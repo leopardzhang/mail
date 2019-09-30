@@ -42,7 +42,12 @@ export default {
 				tel,
 				code: this.userInfo.code
 			}
-			if (name != '' && tel != '') {
+
+			if (/%d/g.test(tel)) {
+				Toast({
+					message: '电话号格式不正确'
+				})
+			} else if (name != '' && tel != '') {
 				this.addFriend(params).then((res) => {
 					Toast({
 						message: '保存成功'

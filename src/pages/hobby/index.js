@@ -167,7 +167,8 @@ export default {
 				Toast({
 					message: '保存成功'
 				})
-			}).catch(() => {
+			}).catch((err) => {
+				console.log(err);
 				this.loading = false;
 				Toast({
 					message: '保存失败请重试'

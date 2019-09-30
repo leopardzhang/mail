@@ -15,13 +15,13 @@ export default {
 	data() {
 		return {
 			routerList: [{
-				name: '提醒',
+				name: '',
 				to: '/tixing'
 			}, {
 				name: '联系人',
 				to: '/index'
 			}, {
-				name: '收藏',
+				name: '',
 				to: '/act'
 			}],
 			routerIndex: 1,

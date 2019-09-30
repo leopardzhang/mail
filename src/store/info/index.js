@@ -121,7 +121,7 @@ const actions = {
 			}
 		})
 
-		if (res.obj.code == ERR_OK) {
+		if (res.success == true) {
 			return 0;
 		} else {
 			throw Error('设置失败请重试');
@@ -249,7 +249,7 @@ const actions = {
 			}
 		});
 
-		if (res.obj.code == ERR_OK) {
+		if (res.success == true) {
 			return 0;
 		} else {
 			throw Error('设置失败请重试');

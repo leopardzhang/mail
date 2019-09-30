@@ -9,7 +9,7 @@ export default {
 					to: ''
 				}, {
 					name: '注意事项',
-					to: 'attention'
+					to: ''
 				}, {
 					name: '健康情况',
 					to: 'healthy'
@@ -24,10 +24,10 @@ export default {
 					to: ''
 				}, {
 					name: '如何找他办事',
-					to: 'findHim'
+					to: ''
 				}, {
 					name: '备忘录',
-					to: 'memorandum'
+					to: ''
 				}
 			]
 		}
