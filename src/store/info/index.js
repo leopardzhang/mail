@@ -105,7 +105,7 @@ const actions = {
 	},
 
 	/**
-	 * 修改健康状况
+	 * 设置好友健康状况
 	 * @param {*} param0 
 	 * @param {*} params 
 	 */
@@ -121,7 +121,7 @@ const actions = {
 			}
 		})
 
-		if (res.success == true) {
+		if (res.success) {
 			return 0;
 		} else {
 			throw Error('设置失败请重试');
@@ -249,7 +249,7 @@ const actions = {
 			}
 		});
 
-		if (res.success == true) {
+		if (res.success) {
 			return 0;
 		} else {
 			throw Error('设置失败请重试');

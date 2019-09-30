@@ -23,7 +23,7 @@ const actions = {
 			}
 		})
 
-		if (res.obj.code == ERR_OK) {
+		if (res.success) {
 			return 0;
 		} else {
 			throw Error('设置失败请重试');

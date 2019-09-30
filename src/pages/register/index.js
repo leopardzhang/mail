@@ -28,7 +28,7 @@ export default {
 					
 					setTimeout(() => {
 						this.$router.push({name: 'login'})
-					}, 2000);
+					}, 1000);
 				} else {
 					Toast({
 						message: res.msg
