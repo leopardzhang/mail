@@ -58,7 +58,7 @@ const actions = {
 			}
 		});
 
-		if (res.obj.code === ERR_OK) {
+		if (res.success) {
 			commit({
 				type: SET_USERINFO,
 				payload: res.obj.user
