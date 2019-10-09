@@ -23,13 +23,11 @@ const actions = {
 			}
 		})
 
-		if (res.success) {
+		if (res.success == ERR_OK) {
 			return 0;
 		} else {
 			throw Error('设置失败请重试');
 		}
-
-		console.log(res);
 	}
 }
 

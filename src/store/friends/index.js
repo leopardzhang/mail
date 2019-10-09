@@ -58,7 +58,7 @@ const actions = {
 			}
 		})
 
-		if (res.success) {
+		if (res.success == ERR_OK) {
 			localStorage.setItem('friendsList', JSON.stringify(res.obj.directoryList));
 			return 0;
 		} else {
