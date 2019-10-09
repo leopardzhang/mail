@@ -37,9 +37,7 @@ const actions = {
 		commit({
 			type: GET_COMMON_FRIDNES,
 			payload: {}
-		})
-
-		console.log(res);
+		});
 	},
 
 	/**

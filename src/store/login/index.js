@@ -118,6 +118,22 @@ const actions = {
 			type: SET_FRIENDS_LOAN,
 			payload: val
 		})
+	},
+
+	/**
+	 * 手动刷新好友列表
+	 * @param {*} param0 
+	 */
+	async refreshFriendList({
+		commit,
+		state
+	}) {
+		const friendsList = JSON.parse(localStorage.getItem('friendsList'));
+
+		commit({
+			type: SET_FRIENDS_LIST,
+			payload: friendsList
+		})
 	}
 }
 

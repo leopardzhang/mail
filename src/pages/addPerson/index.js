@@ -28,7 +28,8 @@ export default {
 
 	methods: {
 		...mapActions([
-			'addFriend'
+			'addFriend',
+			'refreshFriendList'
 		]),
 
 		save() {
@@ -52,7 +53,7 @@ export default {
 					Toast({
 						message: '保存成功'
 					})
-
+					this.refreshFriendList();
 					setTimeout(() => {
 						this.name = '';
 						this.tel = '';
