@@ -5,6 +5,16 @@ import {
 } from 'vuex'
 
 export default {
+
+	beforeRouteEnter (to, from, next) {
+		next( vm => {
+			vm.getCommonFriends({
+				code: this.userInfo.code,
+				directoryid: this.currentFriend.id
+			})
+		})
+	},
+
 	components: {
 		AppHeader
 	},
@@ -20,13 +30,6 @@ export default {
 			'currentFriend',
 			'userInfo'
 		])
-	},
-
-	beforeMount() {
-		this.getCommonFriends({
-			code: this.userInfo.code,
-			directoryid: this.currentFriend.id
-		})
 	},
 
 	methods: {

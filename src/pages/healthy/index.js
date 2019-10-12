@@ -79,23 +79,21 @@ export default {
 		])
 	},
 
-	beforeMount() {
-		const _this = this;
-
-		this.getAllInfo({
-			id: this.currentFriend.id,
-			code: this.userInfo.code
-		}).then(() => {
-			for (const i in _this.healthyInfo) {
-				for (const j in _this.itemList) {
-					if (_this.itemList[j].key == i) {
-						_this.itemList[j].current = _this.itemList[j].options.indexOf(_this.healthyInfo[i])
+	beforeRouteEnter(to, from, next) {
+		next(vm => {
+			vm.getAllInfo({
+				id: vm.currentFriend.id,
+				code: vm.userInfo.code
+			}).then(() => {
+				for (const i in vm.healthyInfo) {
+					for (const j in vm.itemList) {
+						if (vm.itemList[j].key == i) {
+							vm.itemList[j].current = vm.itemList[j].options.indexOf(vm.healthyInfo[i])
+						}
 					}
 				}
-			}
+			})
 		})
-
-
 	},
 
 	methods: {

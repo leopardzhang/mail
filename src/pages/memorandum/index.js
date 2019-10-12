@@ -38,10 +38,12 @@ export default {
 		])
 	},
 
-	beforeMount() {
-		this.getFriendMemorandum({
-			code: this.userInfo.code,
-			directoryid: this.currentFriend.id
+	beforeRouteEnter (to, from, next) {
+		next(vm => {
+			vm.getFriendMemorandum({
+				code: vm.userInfo.code,
+				directoryid: vm.currentFriend.id
+			})
 		})
 	},
 

@@ -71,18 +71,20 @@ export default {
 		])
 	},
 
-	beforeMount() {
-		this.loan.value = this.currentFriend.loan || 0;
+	beforeRouteEnter(to, from, next) {
+		next(vm => {
+			vm.loan.value = vm.currentFriend.loan || 0;
 
-		const curr = this.divingage[0].options.indexOf(this.driveAble)
+			const curr = vm.divingage[0].options.indexOf(vm.driveAble)
 
-		this.divingage[0].current = curr;
+			vm.divingage[0].current = curr;
 
-		this.getHobbyList({
-			id: this.currentFriend.id,
-			code: this.userInfo.code
-		}).then(() => {
-			this.wagenList[0].baseList = this.hobbyInfoChecked.car;
+			vm.getHobbyList({
+				id: vm.currentFriend.id,
+				code: vm.userInfo.code
+			}).then(() => {
+				vm.wagenList[0].baseList = vm.hobbyInfoChecked.car;
+			})
 		})
 	},
 
