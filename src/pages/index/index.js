@@ -14,8 +14,10 @@ export default {
 		...mapGetters(['friendsList'])
 	},
 
-	mounted() {
-		
+	beforeRouteEnter (to, from, next) {
+		next(vm => {
+			console.log(vm.friendsList);
+		})
 	},
 
 	methods: {

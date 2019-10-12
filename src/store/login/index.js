@@ -58,6 +58,16 @@ const actions = {
 			}
 		});
 
+		commit({
+			type: SET_FRIENDS_LIST,
+			payload: ''
+		})
+
+		commit({
+			type: SET_USERINFO,
+			payload: ''
+		})
+
 		if (res.success == ERR_OK) {
 			commit({
 				type: SET_USERINFO,
@@ -71,7 +81,6 @@ const actions = {
 
 			localStorage.setItem('userInfo', JSON.stringify(res.obj.user));
 			localStorage.setItem('friendsList', JSON.stringify(res.obj.directoryList));
-
 		} else {
 			throw Error('用户名或密码错误');
 		}
@@ -145,7 +154,9 @@ const getters = {
 
 	friendsList(state) {
 		const friendsList = state.friendsList;
-		return friendsList ? friendsList : JSON.parse(localStorage.getItem('friendsList'))
+		const res = friendsList ? friendsList : JSON.parse(localStorage.getItem('friendsList'))
+
+		return res;
 	},
 
 	currentFriend(state) {
