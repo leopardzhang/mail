@@ -25,7 +25,7 @@ export default {
 			name: '经济情况',
 			loan: {
 				name: '贷款情况',
-				value: 100000
+				value: ''
 			},
 
 			divingage: [{
