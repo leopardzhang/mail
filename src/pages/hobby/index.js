@@ -207,7 +207,7 @@ export default {
 			} = this;
 
 			this.popupVisible = false;
-			this.hobbyList[currentIndex].inputList = this.other.split(' ');
+			this.hobbyList[currentIndex].inputList = this.other.trim().split(' ');
 			this.hobbyList[currentIndex].baseList = [...this.value]
 		}
 	}

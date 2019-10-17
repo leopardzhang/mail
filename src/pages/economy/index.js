@@ -175,7 +175,7 @@ export default {
 			} = this;
 
 			this.popupVisible = false;
-			this.wagenList[currentIndex].inputList = this.other.split(' ');
+			this.wagenList[currentIndex].inputList = this.other.trim().split(' ');
 			this.wagenList[currentIndex].baseList = [...this.value]
 		}
 	}
