@@ -21,5 +21,26 @@ export default {
 			url: 'cxDirectoryCusController.do?addDirectory',
 			method: 'GET'
 		}
+	},
+
+	/**
+	 * 获取状态
+	 */
+	GET_STATE: {
+		name: 'GET_STATE',
+
+		proxy: {
+			url: 'cxDirectoryCusController.do?checkDirectoryInfo',
+			method: 'GET'
+		}
+	},
+
+	SET_PICTURE: {
+		name: 'SET_PICTURE',
+
+		proxy: {
+			url: 'cxDirectoryCusController.do?addDirectoryHeadimage',
+			method: 'GET'
+		}
 	}
 }

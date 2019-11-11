@@ -70,6 +70,8 @@ const actions = {
 			}
 		});
 
+		console.log(res);
+
 		const {
 			hearing, //听力
 			vision, //视力
@@ -79,7 +81,8 @@ const actions = {
 			phobia, //恐惧症
 			smoke, //吸烟
 			tea, //喝茶
-			alcohol //饮酒
+			alcohol, //饮酒
+			headimage
 		} = res.obj.directory[0]
 
 		commit({
@@ -90,7 +93,8 @@ const actions = {
 				contagion, //传染病
 				insurance, //保险
 				socialsecurity, //社保
-				phobia //恐惧症
+				phobia, //恐惧症
+				headimage
 			}
 		})
 
